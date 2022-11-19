@@ -1,7 +1,10 @@
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { ErrorData, WeeklyData } from "./api/forecast";
 import Pwt5caFooter from "./components/footer";
 import Pwt5caHeader from "./components/header";
+import Pwt5caLoading from "./components/loading";
+import Day from "./components/weather/day";
 
 export default function Home() {
   const [data, setData] = useState<WeeklyData | ErrorData | null>(null);
@@ -18,7 +21,7 @@ export default function Home() {
   }, []);
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return Pwt5caLoading();
   }
   if (data === null) {
     return <p>No profile data</p>;
@@ -27,36 +30,43 @@ export default function Home() {
   }
 
   return (
-    <div className="container">
+    <>
       <Pwt5caHeader />
 
-      <main>
-        <section>
-          <h1 className="display-1">
-            Welcome to <a href="https://nextjs.org">Next.js!</a>
-          </h1>
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={{
+          hidden: {
+            opacity: 0,
+          },
+          visible: {
+            opacity: 1,
+          },
+        }}
+      >
+        <div className="d-flex">
+          <div className="container">
+            <h1 className="display-1 my-5 ">
+              Weather for <b>{data.location}</b>
+            </h1>
+          </div>
+        </div>
 
-          {data.forecasts.map((day) => (
-            <div key={new Date(day.date).toISOString()}>
-              <h2>{new Date(day.date).toDateString()}</h2>
-              {day.periods.map((period) => (
-                <div key={new Date(period.startTime).toDateString()}>
-                  <h3>{period.name}</h3>
-                  <img
-                    src={period.icon}
-                    alt={period.name}
-                    width={50}
-                    height={50}
-                  />
-                  <p>{period.text}</p>
-                </div>
-              ))}
-            </div>
-          ))}
-        </section>
-      </main>
+        <div className="container">
+          <main>
+            <section>
+              <div className="row">
+                {data.forecasts.map((day) => (
+                  <Day key={new Date(day.date).toISOString()} {...day} />
+                ))}
+              </div>
+            </section>
+          </main>
+        </div>
 
-      <Pwt5caFooter />
-    </div>
+        <Pwt5caFooter />
+      </motion.div>
+    </>
   );
 }
