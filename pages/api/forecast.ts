@@ -1,11 +1,11 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
-import { Forecast, ForecastData } from "../types/forecast";
+import { Forecast } from "../../library/types/forecast";
 
 /**
  * Error data returned from the API.
  */
-type ErrorData = {
+export type ErrorData = {
   /**
    * Error message.
    */
@@ -15,7 +15,7 @@ type ErrorData = {
 /**
  * Forecast data for a week returned from the API.
  */
-type WeeklyData = {
+export type WeeklyData = {
   /**
    * Location for the forecast.
    */
@@ -37,12 +37,12 @@ type WeeklyData = {
   forecasts: DailyData[];
 };
 
-type DailyData = {
-  morning: PeriodData | null;
-  afternoon: PeriodData | null;
+export type DailyData = {
+  date: Date;
+  periods: PeriodData[];
 };
 
-type PeriodData = {
+export type PeriodData = {
   name: string;
   startTime: Date;
   tempLow: number;
@@ -90,7 +90,7 @@ export default async function handler(
   for (let i = 0; i < weather_data.time.startPeriodName.length; i++) {
     periods.push({
       name: weather_data.time.startPeriodName[i],
-      startTime: weather_data.time.startValidTime[i],
+      startTime: new Date(weather_data.time.startValidTime[i]),
       tempLow: parseInt(weather_data.data.temperature[i / 2]),
       tempHigh: parseInt(weather_data.data.temperature[i / 2 + 1]),
       precipitation: parseInt(weather_data.data.pop[i] ?? "0"),
@@ -103,11 +103,31 @@ export default async function handler(
   }
 
   // Group the periods into days.
-  for (let i = 0; i < periods.length; i += 2) {
-    forecast.forecasts.push({
-      morning: periods[i],
-      afternoon: periods[i + 1],
-    });
+  let current: PeriodData[] = [];
+  for (let i = 0; i < periods.length; i++) {
+    let date = new Date(periods[i].startTime);
+    date.setHours(0, 0, 0, 0);
+
+    if (current.length === 0) {
+      current.push(periods[i]);
+    } else {
+      let prev_date = new Date(periods[i - 1].startTime);
+      prev_date.setHours(0, 0, 0, 0);
+
+      if (date.getTime() === prev_date.getTime()) {
+        current.push(periods[i]);
+      } else {
+        forecast.forecasts.push({ date: prev_date, periods: current });
+        current = [periods[i]];
+      }
+    }
+  }
+
+  // Add the last day.
+  if (current.length > 0) {
+    let date = new Date(current[0].startTime);
+    date.setHours(0, 0, 0, 0);
+    forecast.forecasts.push({ date: date, periods: current });
   }
 
   res.status(200).json(forecast);
