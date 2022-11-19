@@ -1,0 +1,192 @@
+<dwml xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" version="1.0" xsi:noNamespaceSchemaLocation="https://graphical.weather.gov/xml/DWMLgen/schema/DWML.xsd">
+    <head>
+        <product concise-name="dwmlByDay" operational-mode="developmental" srsName="WGS 1984">
+            <creation-date refresh-frequency="PT1H">2022-11-19T10:00:42-05:00</creation-date>
+            <category>current observations and forecast</category>
+        </product>
+        <source>
+            <production-center>Blacksburg, VA</production-center>
+            <credit>https://www.weather.gov/rnk</credit>
+            <more-information>https://www.nws.noaa.gov/forecasts/xml/</more-information>
+        </source>
+    </head>
+    <data type="forecast">
+        <location>
+            <location-key>point1</location-key>
+            <description>Blacksburg, VA</description>
+            <point latitude="37.22" longitude="-80.41" />
+            <city state="VA">Blacksburg</city>
+            <height datum="mean sea level">2100</height>
+        </location>
+        <moreWeatherInformation applicable-location="point1">https://forecast.weather.gov/MapClick.php?lat=37.22&lon=-80.41</moreWeatherInformation>
+        <time-layout time-coordinate="local" summarization="12hourly">
+            <layout-key>k-p12h-n13-1</layout-key>
+            <start-valid-time period-name="Today">2022-11-19T11:00:00-05:00</start-valid-time>
+            <start-valid-time period-name="Tonight">2022-11-19T18:00:00-05:00</start-valid-time>
+            <start-valid-time period-name="Sunday">2022-11-20T06:00:00-05:00</start-valid-time>
+            <start-valid-time period-name="Sunday Night">2022-11-20T18:00:00-05:00</start-valid-time>
+            <start-valid-time period-name="Monday">2022-11-21T06:00:00-05:00</start-valid-time>
+            <start-valid-time period-name="Monday Night">2022-11-21T18:00:00-05:00</start-valid-time>
+            <start-valid-time period-name="Tuesday">2022-11-22T06:00:00-05:00</start-valid-time>
+            <start-valid-time period-name="Tuesday Night">2022-11-22T18:00:00-05:00</start-valid-time>
+            <start-valid-time period-name="Wednesday">2022-11-23T06:00:00-05:00</start-valid-time>
+            <start-valid-time period-name="Wednesday Night">2022-11-23T18:00:00-05:00</start-valid-time>
+            <start-valid-time period-name="Thanksgiving Day">2022-11-24T06:00:00-05:00</start-valid-time>
+            <start-valid-time period-name="Thursday Night">2022-11-24T18:00:00-05:00</start-valid-time>
+            <start-valid-time period-name="Friday">2022-11-25T06:00:00-05:00</start-valid-time>
+        </time-layout>
+        <time-layout time-coordinate="local" summarization="12hourly">
+            <layout-key>k-p24h-n7-1</layout-key>
+            <start-valid-time period-name="Today">2022-11-19T11:00:00-05:00</start-valid-time>
+            <start-valid-time period-name="Sunday">2022-11-20T06:00:00-05:00</start-valid-time>
+            <start-valid-time period-name="Monday">2022-11-21T06:00:00-05:00</start-valid-time>
+            <start-valid-time period-name="Tuesday">2022-11-22T06:00:00-05:00</start-valid-time>
+            <start-valid-time period-name="Wednesday">2022-11-23T06:00:00-05:00</start-valid-time>
+            <start-valid-time period-name="Thanksgiving Day">2022-11-24T06:00:00-05:00</start-valid-time>
+            <start-valid-time period-name="Friday">2022-11-25T06:00:00-05:00</start-valid-time>
+        </time-layout>
+        <time-layout time-coordinate="local" summarization="12hourly">
+            <layout-key>k-p24h-n6-2</layout-key>
+            <start-valid-time period-name="Tonight">2022-11-19T18:00:00-05:00</start-valid-time>
+            <start-valid-time period-name="Sunday Night">2022-11-20T18:00:00-05:00</start-valid-time>
+            <start-valid-time period-name="Monday Night">2022-11-21T18:00:00-05:00</start-valid-time>
+            <start-valid-time period-name="Tuesday Night">2022-11-22T18:00:00-05:00</start-valid-time>
+            <start-valid-time period-name="Wednesday Night">2022-11-23T18:00:00-05:00</start-valid-time>
+            <start-valid-time period-name="Thursday Night">2022-11-24T18:00:00-05:00</start-valid-time>
+        </time-layout>
+        <parameters applicable-location="point1">
+            <temperature type="maximum" units="Fahrenheit" time-layout="k-p24h-n7-1">
+                <name>Daily Maximum Temperature</name>
+                <value>44</value>
+                <value>35</value>
+                <value>51</value>
+                <value>52</value>
+                <value>56</value>
+                <value>52</value>
+                <value>47</value>
+            </temperature>
+            <temperature type="minimum" units="Fahrenheit" time-layout="k-p24h-n6-2">
+                <name>Daily Minimum Temperature</name>
+                <value>22</value>
+                <value>16</value>
+                <value>26</value>
+                <value>33</value>
+                <value>32</value>
+                <value>36</value>
+            </temperature>
+            <probability-of-precipitation type="12 hour" units="percent" time-layout="k-p12h-n13-1">
+                <name>12 Hourly Probability of Precipitation</name>
+                <value xsi:nil="true" />
+                <value xsi:nil="true" />
+                <value xsi:nil="true" />
+                <value xsi:nil="true" />
+                <value xsi:nil="true" />
+                <value xsi:nil="true" />
+                <value xsi:nil="true" />
+                <value xsi:nil="true" />
+                <value xsi:nil="true" />
+                <value xsi:nil="true" />
+                <value xsi:nil="true" />
+                <value>40</value>
+                <value>50</value>
+            </probability-of-precipitation>
+            <weather time-layout="k-p12h-n13-1">
+                <name>Weather Type, Coverage, Intensity</name>
+                <weather-conditions weather-summary="Sunny" />
+                <weather-conditions weather-summary="Partly Cloudy" />
+                <weather-conditions weather-summary="Sunny" />
+                <weather-conditions weather-summary="Mostly Clear" />
+                <weather-conditions weather-summary="Sunny" />
+                <weather-conditions weather-summary="Partly Cloudy" />
+                <weather-conditions weather-summary="Partly Sunny" />
+                <weather-conditions weather-summary="Mostly Cloudy" />
+                <weather-conditions weather-summary="Mostly Sunny" />
+                <weather-conditions weather-summary="Increasing Clouds" />
+                <weather-conditions weather-summary="Mostly Cloudy" />
+                <weather-conditions weather-summary="Chance Rain" />
+                <weather-conditions weather-summary="Chance Rain/Snow then Chance Rain" />
+            </weather>
+            <conditions-icon type="forecast-NWS" time-layout="k-p12h-n13-1">
+                <name>Conditions Icon</name>
+                <icon-link>https://forecast.weather.gov/newimages/medium/few.png</icon-link>
+                <icon-link>https://forecast.weather.gov/newimages/medium/nsct.png</icon-link>
+                <icon-link>https://forecast.weather.gov/newimages/medium/few.png</icon-link>
+                <icon-link>https://forecast.weather.gov/newimages/medium/nfew.png</icon-link>
+                <icon-link>https://forecast.weather.gov/newimages/medium/few.png</icon-link>
+                <icon-link>https://forecast.weather.gov/newimages/medium/nsct.png</icon-link>
+                <icon-link>https://forecast.weather.gov/newimages/medium/bkn.png</icon-link>
+                <icon-link>https://forecast.weather.gov/newimages/medium/nbkn.png</icon-link>
+                <icon-link>https://forecast.weather.gov/newimages/medium/sct.png</icon-link>
+                <icon-link>https://forecast.weather.gov/newimages/medium/nbkn.png</icon-link>
+                <icon-link>https://forecast.weather.gov/newimages/medium/bkn.png</icon-link>
+                <icon-link>https://forecast.weather.gov/newimages/medium/nra40.png</icon-link>
+                <icon-link>https://forecast.weather.gov/DualImage.php?i=ra_sn&j=ra&ip=50&jp=50</icon-link>
+            </conditions-icon>
+            <wordedForecast time-layout="k-p12h-n13-1" dataSource="rnkNetcdf" wordGenerator="markMitchell">
+                <name>Text Forecast</name>
+                <text>Sunny, with a high near 44. West wind around 9 mph, with gusts as high as 21 mph. </text>
+                <text>Partly cloudy, with a low around 22. West wind 7 to 13 mph, with gusts as high as 34 mph. </text>
+                <text>Sunny, with a high near 35. Northwest wind 9 to 15 mph, with gusts as high as 31 mph. </text>
+                <text>Mostly clear, with a low around 16. West wind around 5 mph becoming calm in the evening. </text>
+                <text>Sunny, with a high near 51. Calm wind becoming southwest around 6 mph in the afternoon. </text>
+                <text>Partly cloudy, with a low around 26.</text>
+                <text>Partly sunny, with a high near 52.</text>
+                <text>Mostly cloudy, with a low around 33.</text>
+                <text>Mostly sunny, with a high near 56.</text>
+                <text>Increasing clouds, with a low around 32.</text>
+                <text>Mostly cloudy, with a high near 52.</text>
+                <text>A chance of rain. Mostly cloudy, with a low around 36. Chance of precipitation is 40%.</text>
+                <text>A chance of rain and snow. Mostly cloudy, with a high near 47. Chance of precipitation is 50%.</text>
+            </wordedForecast>
+        </parameters>
+    </data>
+    <data type="current observations">
+        <location>
+            <location-key>point1</location-key>
+            <point latitude="37.22" longitude="-80.42" />
+            <area-description>Virginia Tech Airport, VA</area-description>
+            <height datum="mean sea level" height-units="feet">2133</height>
+        </location>
+        <moreWeatherInformation applicable-location="point1">https://www.nws.noaa.gov/data/obhistory/KBCB.html</moreWeatherInformation>
+        <time-layout time-coordinate="local">
+            <layout-key>k-p1h-n1-1</layout-key>
+            <start-valid-time period-name="current">2022-11-19T10:55:00-05:00</start-valid-time>
+        </time-layout>
+        <parameters applicable-location="point1">
+            <temperature type="apparent" units="Fahrenheit" time-layout="k-p1h-n1-1">
+                <value>38</value>
+            </temperature>
+            <temperature type="dew point" units="Fahrenheit" time-layout="k-p1h-n1-1">
+                <value>19</value>
+            </temperature>
+            <humidity type="relative" time-layout="k-p1h-n1-1">
+                <value>45</value>
+            </humidity>
+            <weather time-layout="k-p1h-n1-1">
+                <name>Weather Type, Coverage, Intensity</name>
+                <weather-conditions weather-summary="Fair" />
+                <weather-conditions>
+                    <value>
+                        <visibility units="statute miles">10.00</visibility>
+                    </value>
+                </weather-conditions>
+            </weather>
+            <conditions-icon type="forecast-NWS" time-layout="k-p1h-n1-1">
+                <name>Conditions Icon</name>
+                <icon-link>https://forecast.weather.gov/newimages/medium/sct.png</icon-link>
+            </conditions-icon>
+            <direction type="wind" units="degrees true" time-layout="k-p1h-n1-1">
+                <value>250</value>
+            </direction>
+            <wind-speed type="gust" units="knots" time-layout="k-p1h-n1-1">
+                <value>16</value>
+            </wind-speed>
+            <wind-speed type="sustained" units="knots" time-layout="k-p1h-n1-1">
+                <value>7</value>
+            </wind-speed>
+            <pressure type="barometer" units="inches of mercury" time-layout="k-p1h-n1-1">
+                <value>30.25</value>
+            </pressure>
+        </parameters>
+    </data>
+</dwml>
